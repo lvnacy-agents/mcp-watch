@@ -51,7 +51,7 @@ export class PermissionScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsConsentFatiguePatterns(line: string): boolean {

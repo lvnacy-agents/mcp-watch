@@ -45,7 +45,7 @@ export class ServerSpoofingScanner extends AbstractScanner {
       }
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsSuspiciousServerNames(content: string): boolean {

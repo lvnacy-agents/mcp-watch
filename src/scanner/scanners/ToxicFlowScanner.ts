@@ -52,7 +52,7 @@ export class ToxicFlowScanner extends AbstractScanner {
       );
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsUntrustedDataProcessing(line: string): boolean {

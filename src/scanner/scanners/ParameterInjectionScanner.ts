@@ -71,7 +71,7 @@ export class ParameterInjectionScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   /**

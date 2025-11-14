@@ -57,7 +57,7 @@ export class ToolPoisoningScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsHiddenInstructions(line: string): boolean {

@@ -54,7 +54,7 @@ export class PromptInjectionScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsSuspiciousPrompts(line: string): boolean {

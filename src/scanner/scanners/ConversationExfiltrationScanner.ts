@@ -37,7 +37,7 @@ export class ConversationExfiltrationScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return await Promise.resolve(vulnerabilities);
   }
 
   private containsConversationTriggers(line: string): boolean {

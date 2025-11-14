@@ -71,7 +71,7 @@ export class InputValidationScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return await Promise.resolve(vulnerabilities);
   }
 
   private containsCommandInjection(line: string): boolean {

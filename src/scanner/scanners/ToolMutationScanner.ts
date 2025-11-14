@@ -46,7 +46,7 @@ export class ToolMutationScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsToolMutation(line: string): boolean {

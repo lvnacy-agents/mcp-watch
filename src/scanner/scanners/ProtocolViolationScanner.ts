@@ -50,7 +50,7 @@ export class ProtocolViolationScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsSessionIdInUrl(line: string): boolean {

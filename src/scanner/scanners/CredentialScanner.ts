@@ -80,7 +80,7 @@ export class CredentialScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return await Promise.resolve(vulnerabilities);
   }
 
   /**

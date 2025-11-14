@@ -47,7 +47,7 @@ export class AnsiInjectionScanner extends AbstractScanner {
       });
     }
 
-    return vulnerabilities;
+    return Promise.resolve(vulnerabilities);
   }
 
   private containsAnsiEscapes(line: string): boolean {
