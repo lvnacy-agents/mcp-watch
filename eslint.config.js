@@ -2,22 +2,11 @@ const {
     defineConfig,
     globalIgnores,
 } = require("eslint/config");
-
+const stylistic = require('@stylistic/eslint-plugin');
 const tsParser = require("@typescript-eslint/parser");
 const typescriptEslint = require("typescript-eslint");
 const globals = require("globals");
 const js = require("@eslint/js");
-
-const {
-    FlatCompat,
-} = require("@eslint/eslintrc");
-const { ESLint } = require("eslint");
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
 
 module.exports = defineConfig(
     js.configs.recommended,
@@ -30,7 +19,7 @@ module.exports = defineConfig(
         sourceType: "module",
 
         parserOptions: {
-            project: "./tsconfig.json",
+            project: "./tsconfig.eslint.json",
         },
 
         globals: {
@@ -40,6 +29,7 @@ module.exports = defineConfig(
     },
 
     plugins: {
+        "@stylistic": stylistic,
         "typescript-eslint": typescriptEslint,
     },
 
@@ -66,8 +56,9 @@ module.exports = defineConfig(
         }],
         "comma-dangle": ["error", "always-multiline"],
         "semi": ["error", "always"],
-        "quotes": ["error", "single", {
+        "@stylistic/quotes": ["error", "single", {
             avoidEscape: true,
+            allowTemplateLiterals: "always"
         }],
         "indent": ["error", 2],
         "max-len": ["warn", {
