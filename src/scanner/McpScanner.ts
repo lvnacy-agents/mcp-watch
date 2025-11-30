@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 import * as fs from 'fs';
 import * as path from 'path';
-import { execSync } from 'child_process';
+import { spawnSync } from 'child_process';
 import * as tmp from 'tmp';
 import { Vulnerability } from '../types/Vulnerability';
 import { CredentialScanner } from './scanners/CredentialScanner';
@@ -177,8 +178,16 @@ export class MCPScanner {
    */
   private cloneRepo(url: string, targetDir: string) {
     try {
+<<<<<<< HEAD
       console.log('📥 Cloning repository...');
-      execSync(`git clone --depth 1 ${url} ${targetDir}`, { stdio: 'pipe' });
+      const result = spawnSync('git', ['clone', '--depth', '1', url, targetDir], {
+        stdio: 'pipe',
+        encoding: 'utf-8',
+      });
+
+      if (result.error || result.status !== 0) {
+        throw new Error(`Git clone failed: ${result.stderr || result.error?.message}`);
+      }
     } catch (error) {
       /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */
       throw new Error(`Failed to clone repository: ${error}`);
