@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as fs from 'fs';
 import * as path from 'path';
 import { spawnSync } from 'child_process';
@@ -178,7 +177,6 @@ export class MCPScanner {
    */
   private cloneRepo(url: string, targetDir: string) {
     try {
-<<<<<<< HEAD
       console.log('📥 Cloning repository...');
       const result = spawnSync('git', ['clone', '--depth', '1', url, targetDir], {
         stdio: 'pipe',
